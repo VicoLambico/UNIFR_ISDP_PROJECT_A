@@ -1,0 +1,49 @@
+<template class="login-page">
+  <mdc-card class="auth-card">
+    <!-- Titre principal dans une carte -->
+    <div mdc-headline2 class="auth-card__title">UniFlow</div>
+
+    <!-- Formulaire de Connexion -->
+    <div show.bind="!isRegistering">
+      <div mdc-subtitle1 class="auth-card__form-title">Login</div>
+      <form submit.trigger="login()">
+        <mdc-text-field label="Username" value.bind="username" outlined></mdc-text-field>
+        <mdc-text-field label="Password" type="password" value.bind="password" outlined></mdc-text-field>
+
+        <mdc-select value.bind="role" outlined>
+          <mdc-list>
+            <mdc-list-item value="student">Student</mdc-list-item>
+            <mdc-list-item value="teacher">Teacher</mdc-list-item>
+          </mdc-list>
+        </mdc-select>
+
+        <mdc-button raised type="button" click.trigger="login()">Login</mdc-button>
+        <mdc-button outlined click.trigger="toggleRegisterForm()">Register</mdc-button>
+      </form>
+    </div>
+
+    <!-- Formulaire d'Inscription -->
+    <div show.bind="isRegistering">
+      <div mdc-subtitle1 class="auth-card__form-title">Register</div>
+      <form submit.trigger="register()">
+        <mdc-text-field label="Username" value.bind="newUsername" outlined></mdc-text-field>
+        <mdc-text-field label="Password" type="password" value.bind="newPassword" outlined></mdc-text-field>
+
+        <mdc-select value.bind="newRole" outlined>
+          <mdc-list>
+            <mdc-list-item value="student">Student</mdc-list-item>
+            <mdc-list-item value="teacher">Teacher</mdc-list-item>
+          </mdc-list>
+        </mdc-select>
+
+        <mdc-button raised type="button" click.trigger="register()">Register</mdc-button>
+        <mdc-button outlined click.trigger="toggleRegisterForm()">Back to Login</mdc-button>
+      </form>
+    </div>
+
+    <div class="auth-card__footer">
+      <p>By signing up, you agree to our Terms and Conditions.</p>
+    </div>
+  </mdc-card>
+
+</template>
