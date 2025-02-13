@@ -1,0 +1,81 @@
+/* Styles globaux */
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  background-color: #f4f7fc; /* couleur de fond plus claire */
+}
+
+.mdc-drawer-app-content {
+  flex: 1;
+  overflow: auto;
+  position: relative;
+  padding: 0;
+}
+
+.main-content {
+  overflow: auto;
+}
+
+/* Styling de la top app bar */
+.app-bar {
+  position: sticky;
+  top: 0;
+  z-index: 7;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre pour la top bar */
+ 
+}
+
+.mdc-top-app-bar {
+  z-index: 7;
+}
+
+/* Style du drawer */
+.mdc-drawer {
+  padding: 5px;
+  background-color: #a13f3f00; /* Fond blanc */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère pour le drawer */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Transition fluide pour ouverture/fermeture */
+}
+
+.mdc-list-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px; /* Espacement plus large pour les items */
+  font-size: 16px;
+  color: #333; /* Couleur de texte gris foncé */
+  transition: background-color 0.3s ease, padding-left 0.3s ease; /* Transition fluide pour le survol */
+}
+
+.mdc-list-item:hover {
+  background-color: #f1f1f1; /* Fond clair au survol */
+  padding-left: 24px; /* Décalage du texte à gauche au survol */
+}
+
+.mdc-list-item .mdc-list-item__graphic {
+  color: #5c6bc0; /* Couleur des icônes */
+  margin-right: 16px; /* Espacement entre l'icône et le texte */
+}
+
+.mdc-list-item .mdc-list-item__text {
+  flex: 1; /* Le texte prend toute la largeur disponible */
+}
+
+/* Style de la section de fin pour ajouter un espacement et un style spécifique */
+.mdc-top-app-bar__section--align-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
+/* Styles supplémentaires pour une meilleure expérience mobile */
+@media (max-width: 768px) {
+  .mdc-drawer {
+    width: 200px; /* Réduire la largeur du drawer sur mobile */
+  }
+
+  .mdc-list-item {
+    font-size: 14px; /* Réduire la taille de la police sur mobile */
+  }
+}
