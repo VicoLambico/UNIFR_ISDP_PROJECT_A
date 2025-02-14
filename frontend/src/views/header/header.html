@@ -9,8 +9,8 @@
       </section>
 
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
-        <button class="material-icons mdc-icon-button" load="account">notifications</button>
-        <button class="material-icons mdc-icon-button" load="notif">account_circle</button>
+        <button class="material-icons mdc-icon-button" click.trigger="navigateTo('notifs')">notifications</button>
+        <button class="material-icons mdc-icon-button" click.trigger="navigateTo('account')">account_circle</button>
           <!-- modifier quand j'aurai logique logout 
         <button class="material-icons mdc-icon-button" click.trigger="logout()">exit_to_app</button>
         -->
@@ -27,20 +27,20 @@
       <nav class="mdc-list">
 
                <!-- dashboard -->
-        <a class="mdc-list-item" load="dashboard">
+        <a class="mdc-list-item" click.trigger="navigateTo('dashboard')">
           <span class="mdc-list-item__ripple"></span>
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">dashboard</i>
           <span class="mdc-list-item__text">Dashboard</span>
           
         <!-- My Schedule -->
-        <a class="mdc-list-item" load="my-schedule">
+        <a class="mdc-list-item" click.trigger="navigateTo('my-schedule')">
           <span class="mdc-list-item__ripple"></span>
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">event</i>
           <span class="mdc-list-item__text">My Schedule</span>
         </a>
 
         <!-- Course Manager -->
-        <a class="mdc-list-item" load="course-manager">
+        <a class="mdc-list-item" click.trigger="navigateTo('course-manager')" >
           <span class="mdc-list-item__ripple"></span>
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">class</i>
           <span class="mdc-list-item__text">Course Manager</span>
@@ -48,19 +48,19 @@
 
  
         <!-- ecam Manager -->
-        <a class="mdc-list-item" load="exam-manager">
+        <a class="mdc-list-item" click.trigger="navigateTo('exam-manager')" >
           <span class="mdc-list-item__ripple"></span>
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">assignment</i>
           <span class="mdc-list-item__text">Exam Manager</span>
         </a>
         <!-- account -->
-        <a class="mdc-list-item" load="account">
+        <a class="mdc-list-item" click.trigger="navigateTo('account')" >
           <span class="mdc-list-item__ripple"></span>
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">person</i>
           <span class="mdc-list-item__text">Account</span>
         </a>
         <!-- notif -->
-        <a class="mdc-list-item" load="notifs">
+        <a class="mdc-list-item" click.trigger="navigateTo('notifs')" >
           <span class="mdc-list-item__ripple"></span>
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">notifications</i>
           <span class="mdc-list-item__text">Notifications</span>

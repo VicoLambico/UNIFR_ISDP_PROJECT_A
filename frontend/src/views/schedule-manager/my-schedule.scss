@@ -1,0 +1,110 @@
+.schedule-container {
+  padding: 20px;
+  max-width: 900px;
+  box-shadow: var(--mdc-elevation--z4);
+  border-radius: 12px;
+  background: #fff;
+}
+.my-shedule__title {
+  font-family: 'Roboto', sans-serif;  /* Choix d'une police moderne */
+  font-size: 2rem;                    /* Taille du texte */
+  font-weight: 600;                   /* Poids du texte pour plus de visibilité */
+  color: #333;                        /* Couleur du texte */
+  text-align: center;                 /* Centrer le texte */
+  margin: 5px 0;                     /* Espacement autour du titre */
+  text-transform: uppercase;          /* Texte en majuscule */
+  letter-spacing: 2px;                /* Espacement entre les lettres */
+  position: relative;                 /* Positionnement pour l'effet d'ombre */
+  z-index: 1;                         /* Placer le texte au-dessus des autres éléments */
+  
+
+  /* Effet de survol */
+  &:hover {
+    color: #a13f3f;  /* Changer la couleur au survol */
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);  /* Ombre plus marquée au survol */
+  }
+}
+
+/* Disposition du planificateur */
+.planner {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* En-tête */
+.planner-header {
+  display: grid;
+  grid-template-columns: 100px repeat(5, 1fr);
+  background-color: #a13f3f;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.planner-day {
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  text-transform: capitalize;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+
+
+/* Corps du planificateur */
+.planner-body {
+  display: grid;
+  grid-template-columns: 100px repeat(5, 1fr);
+}
+
+.time-slot {
+  display: contents;
+}
+
+.planner-time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e9ecef;
+  font-weight: bold;
+  border-right: 2px solid #ddd;
+  border-bottom: 2px solid #ddd;
+  background-color: #a13f3f;
+  color: #fff;
+}
+
+/* Cellules des cours */
+.planner-cell {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  background-color: #f8f9fa;
+
+}
+
+/* Élément d'un cours */
+.course-item {
+  background-color: #a13f3f;
+  color: #fff;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 150px;
+  font-weight: 500;
+
+
+  transition: transform 0.2s ease-in-out, background 0.3s ease;
+  &:hover {
+    transform: scale(2);
+    background: #a13f3f;
+  }
+    
+}

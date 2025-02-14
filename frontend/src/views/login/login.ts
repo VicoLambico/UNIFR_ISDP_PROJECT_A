@@ -41,19 +41,11 @@ export class Login implements IRouteableComponent {
   }
 
   async login() {
- 
-     if (this.role === 'student') {
-       this.router.load(`/dashboard/${this.username}/${this.role}`).catch(err => {
+    
+       this.router.load(`/dashboard`).catch(err => {
          console.error('Navigation error:', err);
        });
-     } else if (this.role === 'teacher') {
-       this.router.load(`/dashboard/${this.username}/${this.role}`).catch(err => {
-         console.error('Navigation error:', err);
-       });
-  
-     }
-     console.log('Username before login:', this.username);
- 
+    
      this.isLoggedIn = true;  
  
  

@@ -6,10 +6,10 @@
     <!-- Formulaire de Connexion -->
     <div show.bind="!isRegistering">
       <div mdc-subtitle1 class="auth-card__form-title">Login</div>
+
       <form submit.trigger="login()">
         <mdc-text-field label="Username" value.bind="username" outlined></mdc-text-field>
         <mdc-text-field label="Password" type="password" value.bind="password" outlined></mdc-text-field>
-
         <mdc-select value.bind="role" outlined>
           <mdc-list>
             <mdc-list-item value="student">Student</mdc-list-item>
@@ -20,6 +20,7 @@
         <mdc-button raised type="button" click.trigger="login()">Login</mdc-button>
         <mdc-button outlined click.trigger="toggleRegisterForm()">Register</mdc-button>
       </form>
+
     </div>
 
     <!-- Formulaire d'Inscription -->

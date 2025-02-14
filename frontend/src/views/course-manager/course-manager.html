@@ -1,55 +1,81 @@
 <template>
-    <div class="course-manager">
-      <h1>Course Manager</h1>
+  <div class="course-manager">
   
-  
-      <!-- Student role -->
-      <div if.bind="role === 'student'" class="student-section">
-        <ul>
-          <li><button click.trigger="showAvailableCourses()">View Courses</button></li>
-          <li><button click.trigger="navigateToAssignments()">View Assignments</button></li>
-        </ul>
-  
-        <div if.bind="showAvailableCourses" class="courses" >
-          <h3>Available Courses for Enrollment</h3>
-          <div class="course-list">
-            <div repeat.for="course of courses" class="course-item">
-              <h2>${ course.name }</h2>
-                  <p>${ course.description }</p>
-                  <button click.trigger="enroll(course)">Enroll</button>
-                </div>
-          </div>
-        </div>
-      
+    <!-------------------------- Student Role Section -->
+    <div class="student-section">
+      <!-- Title for Student Section -->
+      <div mdc-headline2 class="student-section__title">
+        Student Course Manager section
       </div>
-  
 
-          <!-- Dynamic content for Teachers -->
+      <!-- Tab Bar for Student Role -->
+      <mdc-tab-bar focus-on-activate.bind="false">
+        <mdc-tab label="View Courses" click.trigger="showAvailableCourses()"></mdc-tab>
+        <mdc-tab label="View Assignments" click.trigger="navigateToAssignments()"></mdc-tab>
+      </mdc-tab-bar>
 
-      <div if.bind="role === 'teacher'" class="teacher-section">
-        <ul>
-          <li><button click.trigger="showAvailableCourses()">Manage Courses</button></li>
-          <li><button click.trigger="navigateToGradeAssignments()">Grade Assignments</button></li>
-          <li><button click.trigger="navigateToGradeAssignments()">Schedule Classes</button></li>
-        </ul>
+      <!-- Title for Available Courses Section -->
+      <div mdc-headline4 class="student-section__title">
+        Available Courses for Enrollment
+      </div>
+
+      <!-- Show Available Courses -->
+      <div if.bind="showAvailableCourses" class="courses">
+        <div class="course-list">
+          <!-- Repeat through the courses and display them in cards -->
+          <mdc-card repeat.for="course of courses" class="course__card">
+            <h2>${course.name}</h2>
+            <p>${course.description}</p>
+
+            <!-- Enroll Button -->
+            <mdc-card-action-buttons>
+              <button raised mdc-button click.trigger="enroll(course)">Enroll</button>
+            </mdc-card-action-buttons>
+          </mdc-card>
+        </div>
+      </div>
+    </div>
+
+    <!-------------------------- Teacher Role Section ------------------------------>
+    <div class="teacher-section">
+      <!-- Title for Teacher Section -->
+      <div mdc-headline2 class="teacher-section__title">
+        Teacher Course Manager section
+      </div>
+
+      <!-- Tab Bar for Teacher Role -->
+      <mdc-tab-bar focus-on-activate.bind="false">
+        <mdc-tab label="Manage Courses" click.trigger="showAvailableCourses()"></mdc-tab>
+        <mdc-tab label="Grade Assignments" click.trigger="navigateToGradeAssignments()"></mdc-tab>
+        <mdc-tab label="Schedule Classes" click.trigger="navigateToScheduleClasses()"></mdc-tab>
+      </mdc-tab-bar>
+
+      <!-- Course Management Section (Show if courses are available) -->
+      <div if.bind="showAvailableCourse" class="course-management">
+
+        <mdc-card class="create-course-card">
+        <form class="new-course" submit.trigger="addCourse()">
+    
+          <div mdc-subtitle1 class="auth-card__form-title">Create new course</div>
+          <mdc-text-field label="course-name" value.bind="newCourse.name" outlined required></mdc-text-field>
+          <mdc-text-field label="course-description" value.bind="newCourse.description" outlined required></mdc-text-field>
+
+          <mdc-button raised type="button" click.trigger="addCourse()">Add Course</mdc-button>
+        </form>
+      </mdc-card>
+
+        <!-- Course List -->
+        <div class="course-list">
+          <!-- Repeat through courses and display them in cards -->
+          <mdc-card repeat.for="course of courses" class="course__card">
+            <h2>${course.name}</h2>
+            <p>${course.description}</p>
+          </mdc-card>
+        </div>
+      </div>
 
 
-
-        <div if.bind="showAvailableCourse" class="course-management">
-          <form class="new-course" submit.trigger="addCourse()">
-            <label for="course-name">Course Name:</label>
-            <input type="text" id="course-name" value.bind="newCourse.name" required />
-            <label for="course-description">Course Description:</label>
-            <input type="text" id="course-description" value.bind="newCourse.description" required />
-            <button type="submit">Add Course</button>
-          </form>
-          <div class="course-list">
-            <div repeat.for="course of courses" class="course-item">
-              <h2>${ course.name }</h2>
-                  <p>${ course.description }</p>
-                </div>
-          </div>
-           <!-- Grading Assignments Section -->
+      <!--------------------------------- Grading Assignments Section (Not yet implemented) ------------------------------>
       <div if.bind="gradingAssignmentsVisible">
         <h3>Grade Assignments</h3>
         <!-- Placeholder for grading functionality -->
@@ -70,12 +96,7 @@
             <button click.trigger="scheduleClass(course)">Schedule Class</button>
           </div>
         </div>
-
-        </div>
       </div>
-
     </div>
-  
-
-  </template>
-  
+  </div>
+</template>

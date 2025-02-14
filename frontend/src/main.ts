@@ -11,7 +11,6 @@ Aurelia
   AllConfiguration,
   RouterConfiguration.customize({useUrlFragmentHash:false, basePath:'/'}), 
   FourOhFour,
-
   )
 
   .app(MyApp)

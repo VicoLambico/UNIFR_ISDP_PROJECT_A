@@ -23,10 +23,8 @@ export class ExamManager {
   constructor(private sharedService: SharedService) {}
 
   attached() {
-    const user = this.sharedService.getUser();
-    this.role = user.role;
-    this.username = user.username;
-
+    
+   
     if (this.role === 'student') {
       this.loadStudentView();
       this.loadStudentExams();
@@ -40,7 +38,7 @@ export class ExamManager {
 
   loadStudentView() {
     // Fetch enrolled courses and filter exams
-    this.studentCourses = this.sharedService.getEnrolledCourses(this.username);
+    this.studentCourses = this.sharedService.getEnrolledCourses();
     this.filteredExams = this.sharedService.getExamsByCourses(this.studentCourses);
   }
 
@@ -72,7 +70,7 @@ export class ExamManager {
   }
   loadStudentExams() {
     // get enrolled course IDs for the student
-    const enrolledCourseIds = this.sharedService.getEnrolledCourses(this.username);
+    const enrolledCourseIds = this.sharedService.getEnrolledCourses();
   
     // map course IDs to their corresponding Course objects
     const enrolledCourses = enrolledCourseIds

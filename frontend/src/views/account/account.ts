@@ -22,8 +22,8 @@ export class Account {
  
   async loading(params: { username: string }): Promise<void> {
     this.username = params.username;
-    this.role = this.sharedService.getRole();
-    this.enrolledCourses = this.sharedService.getEnrolledCourses(this.username).map(courseId => {
+ 
+    this.enrolledCourses = this.sharedService.getEnrolledCourses().map(courseId => {
       return this.sharedService.getCourses().find(c => c.id === courseId);
     }).filter(Boolean);    
 

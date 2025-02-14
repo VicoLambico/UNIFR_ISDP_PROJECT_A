@@ -1,0 +1,82 @@
+{
+  "hash": "984cff96",
+  "configHash": "65ca00e8",
+  "lockfileHash": "b5476475",
+  "browserHash": "cdf70fde",
+  "optimized": {
+    "@aurelia-mdc-web/all": {
+      "src": "../../node_modules/@aurelia-mdc-web/all/dist/index.js",
+      "file": "@aurelia-mdc-web_all.js",
+      "fileHash": "10eea834",
+      "needsInterop": false
+    },
+    "@aurelia/router": {
+      "src": "../../node_modules/@aurelia/router/dist/esm/index.dev.mjs",
+      "file": "@aurelia_router.js",
+      "fileHash": "88671953",
+      "needsInterop": false
+    },
+    "@aurelia/runtime-html": {
+      "src": "../../node_modules/@aurelia/runtime-html/dist/esm/index.dev.mjs",
+      "file": "@aurelia_runtime-html.js",
+      "fileHash": "2e0abc49",
+      "needsInterop": false
+    },
+    "@material/drawer": {
+      "src": "../../node_modules/@material/drawer/index.js",
+      "file": "@material_drawer.js",
+      "fileHash": "516cf770",
+      "needsInterop": false
+    },
+    "@material/top-app-bar": {
+      "src": "../../node_modules/@material/top-app-bar/index.js",
+      "file": "@material_top-app-bar.js",
+      "fileHash": "88efa5c8",
+      "needsInterop": false
+    },
+    "aurelia": {
+      "src": "../../node_modules/aurelia/dist/esm/index.dev.mjs",
+      "file": "aurelia.js",
+      "fileHash": "ee07749d",
+      "needsInterop": false
+    },
+    "vite-plugin-node-polyfills/shims/buffer": {
+      "src": "../../node_modules/vite-plugin-node-polyfills/shims/buffer/dist/index.js",
+      "file": "vite-plugin-node-polyfills_shims_buffer.js",
+      "fileHash": "22ffa5c7",
+      "needsInterop": false
+    },
+    "vite-plugin-node-polyfills/shims/global": {
+      "src": "../../node_modules/vite-plugin-node-polyfills/shims/global/dist/index.js",
+      "file": "vite-plugin-node-polyfills_shims_global.js",
+      "fileHash": "422beffa",
+      "needsInterop": false
+    },
+    "vite-plugin-node-polyfills/shims/process": {
+      "src": "../../node_modules/vite-plugin-node-polyfills/shims/process/dist/index.js",
+      "file": "vite-plugin-node-polyfills_shims_process.js",
+      "fileHash": "e27b3a81",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-R5MIPIJ4": {
+      "file": "chunk-R5MIPIJ4.js"
+    },
+    "chunk-GBUJPVKB": {
+      "file": "chunk-GBUJPVKB.js"
+    },
+    "chunk-2KH6P6Y5": {
+      "file": "chunk-2KH6P6Y5.js"
+    },
+    "chunk-X76FEG47": {
+      "file": "chunk-X76FEG47.js"
+    },
+    "chunk-S7YNWOLH": {
+      "file": "chunk-S7YNWOLH.js"
+    },
+    "chunk-OFI5MVGH": {
+      "file": "chunk-OFI5MVGH.js"
+    }
+  }
+}

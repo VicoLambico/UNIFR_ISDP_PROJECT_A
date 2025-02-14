@@ -3,6 +3,7 @@ import { nodePolyfills } from 'vite-plugin-node-polyfills'
 import aurelia from '@aurelia/vite-plugin';
 
 export default defineConfig({
+  cacheDir: '.vite_cache',
 css:{
   preprocessorOptions: {
     scss: {
@@ -24,8 +25,8 @@ css:{
     esbuildOptions: {
       loader:{
         '.html': 'text',
-      }
-    }
+      },
+    },
   },
 
   plugins: [
@@ -34,4 +35,5 @@ css:{
     }),
     nodePolyfills(),
   ],
+  
 });

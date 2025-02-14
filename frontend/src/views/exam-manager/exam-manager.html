@@ -1,7 +1,8 @@
 <template>
-    <div if.bind="role ==='student'" class="exam-manager-container mdc-card">
-   
       <!-- Student View -->
+      <h1>STUDENT SECTION </h1>
+    <div  class="exam-manager-container mdc-card">
+
       <h3>Your Upcoming Exams</h3>
       <ul class="exam-list">
         <li repeat.for="exam of filteredExams" class="exam-item">
@@ -12,7 +13,8 @@
 
 
     <!-- Teacher Section -->
-    <div if.bind="role === 'teacher'" class="teacher-section">
+    <h1>TEACHER SECTION </h1>
+    <div  class="teacher-section">
       <h3>Add New Exam</h3>
       <form class="addExam" submit.trigger="addExam()">
         <label for="subject">Subject:</label>

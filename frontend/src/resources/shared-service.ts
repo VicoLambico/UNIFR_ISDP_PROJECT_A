@@ -1,6 +1,6 @@
 import { singleton } from 'aurelia';
 
-// interfaces for clarity
+// Interfaces pour plus de clarté
 export interface Course {
   id: string;
   name: string;
@@ -20,10 +20,6 @@ export interface Grade {
 
 @singleton()
 export class SharedService {
-  private role: string = 'unknown';
-  private username: string = '';
-
-  // State
   private courses: Course[] = [
     { id: '1', name: 'Computer Science 101', description: 'Introduction to Computer Science.' },
     { id: '2', name: 'Mathematics 101', description: 'Introduction to Algebra.' },
@@ -32,23 +28,9 @@ export class SharedService {
 
   private exams: Exam[] = [];
   private grades: Grade[] = [];
-  private enrollments: { student: string; courses: string[] }[] = [];
+  private enrollments: string[] = [];  // Liste des cours auxquels l'utilisateur est inscrit
 
-  // User methods
-  public setUser(username: string, role: string): void {
-    this.username = username;
-    this.role = role;
-  }
-
-  public getUser(): { username: string; role: string } {
-    return { username: this.username, role: this.role };
-  }
-
-  public getRole(): string {
-    return this.role;
-  }
-
-  // Course methods
+  // Méthodes de gestion des cours
   public getCourses(): Course[] {
     return this.courses;
   }
@@ -57,7 +39,18 @@ export class SharedService {
     this.courses.push(course);
   }
 
-  // Exam methods
+  // Méthodes pour l'enrôlement
+  public enrollInCourse(courseId: string): void {
+    if (!this.enrollments.includes(courseId)) {
+      this.enrollments.push(courseId);  // Ajouter le cours à la liste des cours inscrits
+    }
+  }
+
+  public getEnrolledCourses(): string[] {
+    return this.enrollments;  // Retourne la liste des cours inscrits
+  }
+
+  // Méthodes pour les examens
   public addExam(exam: Exam): void {
     this.exams.push(exam);
   }
@@ -70,7 +63,7 @@ export class SharedService {
     return this.exams.filter(exam => courses.includes(exam.subject));
   }
 
-  // Grade methods
+  // Méthodes pour les notes
   public addGrade(grade: Grade): void {
     this.grades.push(grade);
   }
@@ -81,22 +74,5 @@ export class SharedService {
 
   public getGradesByStudent(student: string): Grade[] {
     return this.grades.filter(grade => grade.student === student);
-  }
-
-  // Enrollment methods
-  public enrollStudent(student: string, courseId: string): void {
-    let enrollment = this.enrollments.find(e => e.student === student);
-    if (!enrollment) {
-      enrollment = { student, courses: [] };
-      this.enrollments.push(enrollment);
-    }
-    if (!enrollment.courses.includes(courseId)) {
-      enrollment.courses.push(courseId);
-    }
-  }
-
-  public getEnrolledCourses(student: string): string[] {
-    const enrollment = this.enrollments.find(e => e.student === student);
-    return enrollment ? enrollment.courses : [];
   }
 }

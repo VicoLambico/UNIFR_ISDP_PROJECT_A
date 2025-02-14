@@ -1,15 +1,15 @@
-import { IRouter } from '@aurelia/router';
 import { customElement, resolve } from 'aurelia';
 import template from './header.html'; 
 import { MDCDrawer } from "@material/drawer";
 import { MDCTopAppBar } from '@material/top-app-bar';
-
+import { IRouter } from '@aurelia/router';
 
 @customElement({ name: 'header-menu', template })
 export class Header {
     private drawer: MDCDrawer | null = null;
     private topAppBar: MDCTopAppBar | null = null;
-  
+    private router: IRouter = resolve(IRouter);
+    
     attached() {
       console.log("Attaching header-menu...");
   
@@ -52,7 +52,10 @@ export class Header {
   
     navigateTo(route: string) {
       console.log(`Navigation vers ${route}`);
-      this.toggleDrawer();
+      this.router.load(route);
+      
+      // à voir si on prefère laisser ouvert
+      this.drawer.open = false;
     }
   
     logout() {
