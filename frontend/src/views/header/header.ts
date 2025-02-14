@@ -55,7 +55,7 @@ export class Header {
       this.router.load(route);
       
       // à voir si on prefère laisser ouvert
-      this.drawer.open = false;
+      //this.drawer.open = false;
     }
   
     logout() {

@@ -1,42 +1,35 @@
 .course-manager {
-  position: relative;
   top: 0;
-  height: 100vh;
-  max-width: 2000px;
-  border-radius: 12px;
-  padding: 20px;
+  height: 100%;
   margin: 0 auto;
   box-shadow: var(--mdc-elevation--z4);
-  background-color: #fafafa;  // Fond léger et moderne
-
-  display: flex;
   flex-direction: column;
-  align-items: center;
+
 }
 
 .student-section, .teacher-section {
   width: 100%;
   margin-bottom: 40px;
-  display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .student-section__title, .teacher-section__title {
-  font-weight: bold;
-  color: #333;
+  background-color: #333;
+  color: white;
   text-align: center;
-}
+  font-size: 2rem;
 
-.student-section__subtitle {
+}
+.student__avalible__enrollment{
   margin-top: 20px;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: #555;
   text-align: center;
+  margin-bottom: 20px;
 }
 
+
 .mdc-tab-bar {
-  margin-top: 16px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: var(--mdc-elevation--z1);
@@ -44,12 +37,10 @@
 
 .mdc-tab {
   text-align: center;
-  padding: 12px;
+  background-color: #fcfcfc;
 }
 
-
-
-.course-list {
+.course__list {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -59,76 +50,59 @@
 .course__card {
   width: 100%;
   max-width: 320px;
-  background-color: #fff;
+  background-color: #fcfcfc;
   border-radius: 8px;
-  box-shadow: var(--mdc-elevation--z2);
-  padding: 16px;
-  transition: box-shadow 0.3s ease-in-out;
+  padding: 10px;
   text-align: center;
+  display: flex;
+  flex-direction: column; // Permet d'organiser les éléments en colonne
+  justify-content: space-between; // Espace entre le contenu et le bouton
+  align-items: center;
+
 }
 
 .course__card:hover {
-  box-shadow: var(--mdc-elevation--z8);
-}
-
-.mdc-card-action-buttons {
-  display: flex;
-  justify-content: center;
-  margin-top: 16px;
+  background-color: #ffffff;
 }
 
 .mdc-button {
-  color: #fff;
-  font-weight: bold;
-
+  --mdc-theme-primary: #367e39b2;
 }
 
 .mdc-button:hover {
-  background-color: #a10202;
+  background-color: #367e38;
 }
 
-.create-course-card {
-  margin-bottom: 30px;
+.new-course-card__form-title{
+  font-size: 1.5rem;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.new__course__card {
+  margin: 20px auto; /* Auto pour centrer horizontalement */
   padding: 20px;
-  background-color: #fff;
+  background-color: #fcfcfc;
   border-radius: 8px;
-  box-shadow: var(--mdc-elevation--z2);
+  
   width: 100%;
   max-width: 500px;
+  align-items: center;
+  border-radius: 8px;
 }
 
-.new-course .mdc-text-field {
+.new__course__form .mdc-text-field {
   margin-bottom: 16px;
   width: 100%;
 }
 
-.new-course .mdc-button {
+.new__course__form .mdc-button {
   width: 100%;
   margin-top: 16px;
 }
 
-.grading-section, .schedule-section {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
 
-.grading-section .course-item, .schedule-section .course-item {
-  text-align: center;
-}
-
-.grading-section button, .schedule-section button {
-  background-color: #1976d2;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.grading-section button:hover, .schedule-section button:hover {
-  background-color: #1565c0;
-}
 
 @media (max-width: 768px) {
   .course__card {

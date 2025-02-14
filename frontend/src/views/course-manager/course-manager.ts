@@ -1,6 +1,6 @@
 import { customElement } from '@aurelia/runtime-html';
 import { IRouteableComponent } from '@aurelia/router';
-import { inject } from 'aurelia';
+import { inject, bindable } from 'aurelia';
 import template from './course-manager.html';
 import { SharedService, Course } from '../../resources/shared-service';
 
@@ -10,15 +10,18 @@ import { SharedService, Course } from '../../resources/shared-service';
   template
 })
 export class CourseManager implements IRouteableComponent {
-  public showAvailableCourse: boolean = false;
-  gradingAssignmentsVisible: boolean = false;
-  scheduleClassesVisible: boolean = false;
+  @bindable()  availableCoursesVisible: boolean = true;
+  @bindable()  manageCoursesVisible: boolean = true;
+  @bindable()  gradingAssignmentsVisible: boolean = false;
+  @bindable()  scheduleClassesVisible: boolean = false;
+  @bindable()  myAssignementVisible: boolean = false;
+  @bindable()  newCourse: Course = { id: '', name: '', description: '' };
+  @bindable()  courses: Course[] = [];
+  @bindable()  enrolledCourses: Course[] = [];
 
-  public newCourse: Course = { id: '', name: '', description: '' };
-  public courses: Course[] = [];
-  public enrolledCourses: Course[] = [];
-
-  constructor(private sharedService: SharedService) {}
+  constructor(private sharedService: SharedService) {
+    
+  }
 
   // Méthode pour charger les cours disponibles et ceux auxquels l'utilisateur est inscrit
   async loading(): Promise<void> {
@@ -35,10 +38,35 @@ export class CourseManager implements IRouteableComponent {
     alert(`You have enrolled in: ${course.name}`);
   }
 
-  // Afficher les cours disponibles
+  // Afficher les elements STUDENT SECTION
   public showAvailableCourses() {
-    this.showAvailableCourse = true;
+    this.availableCoursesVisible = true;
+    this.myAssignementVisible = false;
   }
+  public showMyAssignement() {
+    this.myAssignementVisible = true;
+    this.availableCoursesVisible = false;
+  }
+
+   // Afficher les elements TEACHER SECTION
+  public showManageCourses() {
+    this.manageCoursesVisible = true;
+    this.scheduleClassesVisible = false;
+    this.gradingAssignmentsVisible = false;
+  }
+  public showGradeAssignments() {
+    this.manageCoursesVisible = false;
+    this.scheduleClassesVisible = false;
+    this.gradingAssignmentsVisible = true;
+  }
+  public showScheduleClasses() {
+    this.manageCoursesVisible = false;
+    this.scheduleClassesVisible = true;
+    this.gradingAssignmentsVisible = false;
+  }
+
+  
+
 
   // Ajouter un nouveau cours
   addCourse(): void {
@@ -54,13 +82,13 @@ export class CourseManager implements IRouteableComponent {
 
   // Méthode pour gérer les évaluations
   gradeAssignments(course: Course): void {
-    this.gradingAssignmentsVisible = true;
+
     alert(`Grading assignments for ${course.name}`);
   }
 
   // Méthode pour planifier des cours
   scheduleClass(course: Course): void {
-    this.scheduleClassesVisible = true;
+
     alert(`Scheduling classes for ${course.name}`);
   }
 }
